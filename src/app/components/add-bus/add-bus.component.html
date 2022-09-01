@@ -1,0 +1,94 @@
+<div class="col-md-4 offset-4 mt-6 card" style="background:snow">
+    <div class="card-body">
+    <form #createBus="ngForm" (ngSubmit)="addBus(createBus)">
+        <h1 class="h1 text-center">Add Bus </h1>
+        <div class="form-group">
+            <label for="bus_id" class="text-success">Bus Number</label>
+            <input type="number" #bus_id="ngModel" ngModel name="bus_id" id="bus_id" class="form-control" required
+                placeholder="Enter Bus Number">
+            <div *ngIf="bus_id.touched && bus_id.invalid">
+                <p class="alert alert-danger"> *This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="source" class="text-success">Source
+                </label>
+            <input type="text" #source="ngModel" ngModel name="source" id="source"
+                class="form-control" required placeholder="Enter Starting point">
+            <div *ngIf="source.touched && source.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="destination" class="text-success">Destination
+                </label>
+            <input type="text" #destination="ngModel" ngModel name="destination" id="destination" class="form-control"
+                required placeholder="Enter ending point">
+            <div *ngIf="destination.touched && destination.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="seats" class="text-success">Seats
+                </label>
+            <input type="number" #seats="ngModel" ngModel name="seats" id="seats" class="form-control"
+                required placeholder="Enter Total Seats">
+            <div *ngIf="seats.touched && seats.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="price" class="text-success">Price</label>
+            <input type="number" #price="ngModel" ngModel name="price" id="price" class="form-control" required
+                placeholder="Enter Ticket Price">
+            <div *ngIf="price.touched && price.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="type" class="text-success">Type</label>
+            <input type="text" #type="ngModel" ngModel name="type" id="type" class="form-control" required
+                placeholder="Enter Bus Type">
+            <div *ngIf="type.touched && type.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="distance" class="text-success">Distance</label>
+            <input type="text" #distance="ngModel" ngModel name="distance" id="distance" class="form-control" required
+                placeholder="Enter distance">
+            <div *ngIf="distance.touched && distance.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="time" class="text-success">Departure Time</label>
+            
+            <input type="text" #time="ngModel" ngModel name="time" id="time" class="form-control" required
+                placeholder="Enter Departure time">
+            <div *ngIf="time.touched && time.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="departuredate" class="text-success">Departure Date</label>
+            
+            <input type="date" #departureDate="ngModel" ngModel name="departureDate" id="departureDate" class="form-control" required
+                placeholder="Enter Departure Date">
+            <div *ngIf="departureDate.touched && departureDate.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary float-right" [disabled]="createBus.invalid">Add Bus </button>
+
+
+    </form>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<form action="action_page.php" method="post">
+    <div class="imgcontainer">
+      <img src="../../../assets/wallet.jpg" alt="Avatar" class="avatar">
+    </div>
+  
+    <div class="container">
+      <table class="table table-bordered table-striped" style="background:snow" >
+        <thead>
+          <tr>
+            <th scope="col">Wallet Balance</th>
+            <th scope="col" *ngIf="check">Ticket Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{walletBalance}}</td>
+            <td *ngIf="check">{{ticketAmount}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" (click)="onPay()" *ngIf="check">Pay</button>
+  <button type="submit" (click)="openPopup()">Add Money</button>
+    </div>
+  </form>
+  
+      
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form #addAmount="ngForm" (ngSubmit)="addMoney(addAmount)">
+        <h1 class="h1 text-center">Add Money</h1>
+    
+        <div class="form-group">
+            <label for="amount" class="text-success">Add Money</label>
+            <input type="number" #amount="ngModel" ngModel name="amount" class="form-control" required placeholder="Enter amount">
+            <div *ngIf="amount.touched && amount.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+       
+          <button type="submit" class="btn btn-info">
+            Add Money
+          </button>
+          <button type="button" class="btn btn-danger" 
+          (click)="closePopup()">
+              Close
+            </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+
+
+
+
+
+<div class="col-md-5 offset-md-4 card card-body mt-5">
+    <form #bookTicketForm="ngForm" (ngSubmit)="bookTicket(bookTicketForm)">
+        <h1 class="bg-info text-light card" align="center">Book Seats</h1>
+        <h6 class="text-danger float-right">*Required Fields</h6>
+        <div class="form-group">
+            <label for="numOfSeats" class="text-success">No of Seats to book
+            </label>
+            <input type="text" #numOfSeats="ngModel" [(ngModel)]="Seats" name="numOfSeats" id="numOfSeats" class="form-control"
+                required placeholder="Enter number of seats">
+            <div *ngIf="numOfSeats.touched && numOfSeats.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary float-center" [disabled]="bookTicketForm.invalid">Confirm</button>
+        <div class="row total">
+            <h2><b>Seats Available: {{bus.seats}} </b></h2>
+           
+                <br>
+            
+  
+        </div>
+        <div class="row total"><h2><b>Total Fare: {{Seats*bus.price}} </b></h2></div>
+    </form>
+</div>

@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" routerLink="/">
+        <img src="./../../../assets/LTI.jpg" width="200px" alt=""
+        style="border-radius: 100px">
+    </a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <h2><a class="nav-link" routerLink="/"><b>Home</b> </a></h2>
+            </li>
+
+
+            <!-- ADMIN PERFORMANCE -->
+            <li class="nav-item active" *ngIf="isAdminLogin">
+                <h2><a class="nav-link" routerLink="addBus"><b>Add Bus</b> </a></h2>
+            </li>
+            <li class="nav-item active" *ngIf="isAdminLogin">
+                <h2><a class="nav-link" routerLink="displayBus"><b>Display Bus</b> </a></h2>
+            </li>
+
+
+            <!-- CUSTOMER PERFORMANCE -->
+            <li class="nav-item active" *ngIf="getavalia && isCustomerLogin">
+                <h2><a class="nav-link" routerLink="booktickets"><b>Book Ticket</b></a></h2>
+            </li>
+            <li class="nav-item active" *ngIf="isCustomerLogin">
+                <h2><a class="nav-link" routerLink="viewtickets"><b>View Ticket</b></a></h2>
+            </li>
+            <li class="nav-item active" *ngIf="isCustomerLogin">
+                <h2><a class="nav-link" routerLink="wallet"><b>Wallet</b></a></h2>
+            </li>
+            <li class="nav-item active" *ngIf="isCustomerLogin">
+                <h2><a class="nav-link" routerLink="feedback"><b>Feedback</b></a></h2>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item active" *ngIf="!isAdminLogin && !isCustomerLogin">
+                <h2><a class="nav-link" routerLink="register"><b>Register</b> </a></h2>
+            </li>
+            <li class="nav-item active" *ngIf="!isAdminLogin && !isCustomerLogin">
+                <h2><a class="nav-link" routerLink="login"><b>Login</b> </a></h2>
+            </li>
+            <li class="nav-item active" *ngIf="isCustomerLogin">
+                <h2><a class="nav-link" routerLink="updateUser"><b>Profile</b></a></h2>
+            </li>
+            <li class="nav-item active logout" *ngIf="isAdminLogin || isCustomerLogin">
+                <button type="button" class="btn btn-outline-danger " (click)="logout()"><b>Logout</b></button>
+            </li>
+        </ul>
+    </div>
+</nav>
